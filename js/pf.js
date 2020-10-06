@@ -1,13 +1,13 @@
 type = 'text/javascript';
 
 //PingFederate Info
-const baseUrl = 'https://cus360.ping-eng.com';
+const baseUrl = 'https://cusmorg.ping-eng.com';
 const scopes = 'openid profile'; // default scopes to request
 const responseType = 'token id_token'; // tokens to recieve
 
 const landingUrl = baseUrl + '/index-finance.html'; // url to send the person once authentication is complete
 const logoutUrl = baseUrl + 'logout/'; // whitelisted url to send a person who wants to logout
-const redirectUri = 'https://morgapp.ping-eng.com/index-finance.html'; // whitelisted url P14C sends the token or code to
+const redirectUri = 'https://cusmorg.ping-eng.com/pfApp/index-finance.html'; // whitelisted url P14C sends the token or code to
 
 const clientId = 'beAPI';
 
@@ -23,7 +23,7 @@ const startSSO = '/idp/startSSO.ping';
 const nonce = getNonce();
 
 //PD Values
-const pdBaseUrl= 'https://cus360.ping-eng.com'
+const pdBaseUrl= 'https://cusmorg.ping-eng.com'
 
 
 const authorizationUrl =
@@ -479,7 +479,7 @@ function verifyEmail(conStat){
 }
 
 function createEmailUser(){
-  let url = 'https://cus360.ping-eng.com:3000/directory/v1/';
+  let url = 'https://' + pdBaseUrl +'/directory/v1/';
   let userEmail=$('#user_email').val();
   let dn = 'uid='+userEmail+',ou=People,dc=customer360.com';
   console.log('userDN=' + dn);
