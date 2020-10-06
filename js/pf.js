@@ -1,7 +1,7 @@
 type = 'text/javascript';
 
 //PingFederate Info
-const baseUrl = 'https://cus360.ping-eng.com:9031';
+const baseUrl = 'https://cus360.ping-eng.com';
 const scopes = 'openid profile'; // default scopes to request
 const responseType = 'token id_token'; // tokens to recieve
 
@@ -23,7 +23,7 @@ const startSSO = '/idp/startSSO.ping';
 const nonce = getNonce();
 
 //PD Values
-const pdBaseUrl= 'https://cus360.ping-eng.com:3000'
+const pdBaseUrl= 'https://cus360.ping-eng.com'
 
 
 const authorizationUrl =
