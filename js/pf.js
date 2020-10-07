@@ -348,13 +348,12 @@ function nextStep(data) {
     case 'AUTHENTICATION_REQUIRED':
       console.log('Rendering otp form');
       console.log('callPingID');
-      callPingID();
       $('#loginDiv').hide();
       $('#otpDiv').hide();
       $('#pushDiv').hide();
       $('#regDiv').hide();
       $('#pwResetCodeDiv').hide();
-      $('#authenticateDiv').hide();
+      $('#authenticateDiv').show();
       $('#changePasswordDiv').hide();
       $('#idFirst').hide();
       $('#pingIDNextStep').val(data._links['authenticate'].href);
