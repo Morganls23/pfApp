@@ -161,8 +161,9 @@ function renderDivState() {
 
     let account = document.getElementById("myAccount");
     account.style.display = "block";
-    let account = document.getElementById("idFirst");
-    account.style.display = "block";
+
+    let idFirst = document.getElementById("idFirst");
+    account.style.display = "none";
 
 
   } else {
