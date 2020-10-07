@@ -337,17 +337,31 @@ function nextStep(data) {
     case 'AUTHENTICATION_REQUIRED':
       console.log('Rendering otp form');
       console.log('callPingID');
-      //callPingID();
+      callPingID();
       $('#loginDiv').hide();
-      $('#otpDiv').show();
+      $('#otpDiv').hide();
       $('#pushDiv').hide();
       $('#regDiv').hide();
       $('#pwResetCodeDiv').hide();
       $('#changePasswordDiv').hide();
       $('#idFirst').hide();
-      $('#validateOtpUrl').val(data._links['otp.check'].href);
+      $('#pingIDNextStep').val(data._links['authenticate'].href);
       $('#ppDiv').hide('');
       break;
+      case 'OTP_REQUIRED':
+        console.log('Rendering otp form');
+        console.log('callPingID');
+        submitOTP();
+        $('#loginDiv').hide();
+        $('#otpDiv').show();
+        $('#pushDiv').hide();
+        $('#regDiv').hide();
+        $('#pwResetCodeDiv').hide();
+        $('#changePasswordDiv').hide();
+        $('#idFirst').hide();
+        $('#checkOtp').val(data._links['checkOtp'].href);
+        $('#ppDiv').hide('');
+        break;
     case 'PUSH_CONFIRMATION_REQUIRED':
       console.log('Rendering wait for push form');
       $('#loginDiv').hide();
@@ -494,33 +508,38 @@ function submitID(){
 }
 
 
-
-
-
-
-
-
-
-
-///Other stuff that's not authentication/Register
-
 function callPingID(){
   console.log('PingID called');
-  let user = $('#user_login').val();
-  let url = 'https://sdk.pingid.com/pingid/v1/accounts/47e28617-4a90-40e3-99cd-6242f966b3dc/applications/74b5cc6f-576e-4b47-8bb7-4f7e8806f503/users' + user + '/authentications/'
+
+  let url = $('#pingIDNextStep').val()
   let payload = JSON.stringify({
-    authenticationType:"AUTHENTICATE",
-    emailConfigurationType:"auth_without_payload",
-    smsMessage:"Please enter this code to authenticate - ",
-    pushMessageTitle:"Request from Customer Service",
-    pushMessageBody:"Please verify your authentication",
-    voiceMessage:"Your authentication code is: ${OTP}"
+    "mobilePayload": ""
   });
   console.log('PingID url' + url);
   console.log('PingID payload: ' + payload);
 
   exJaxPingID('POST', url, nextStep, content, payload);
 }
+
+
+
+function submitOTP(){
+  console.log('validatePassword called');
+  let payload = JSON.stringify({
+    "otp": $('#otp_login').val()
+  });
+  console.log('payload is ' + payload);
+  let url = $('#checkOtp').val();
+  console.log('url is: ' + url);
+  let content = 'application/vnd.pingidentity.checkOtp+json';
+  console.log('Content is '+ content);
+  exJax('POST', url, nextStep, content, payload);
+}
+
+
+
+///Other stuff that's not authentication/Register
+
 
 
 function verifyEmail(conStat){
