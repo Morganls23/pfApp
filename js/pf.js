@@ -352,6 +352,7 @@ function nextStep(data) {
       $('#changePasswordDiv').hide();
       $('#idFirst').hide();
       $('#pingIDNextStep').val(data._links['authenticate'].href);
+}
       $('#ppDiv').hide('');
       break;
       case 'OTP_REQUIRED':
@@ -524,7 +525,7 @@ function submitID(){
 function callPingID(){
   console.log('PingID called');
 
-  let url = $('#pingIDNextStep').val()
+  let url = $('#pingIDNextStep').val();
   let payload = JSON.stringify({
     "mobilePayload": ""
   });
