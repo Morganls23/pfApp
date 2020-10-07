@@ -162,8 +162,8 @@ function renderDivState() {
     let account = document.getElementById("myAccount");
     account.style.display = "block";
 
-    let idFirst = document.getElementById("idFirst");
-    account.style.display = "none";
+    let identifier = document.getElementById("idFirst");
+    identifier.style.display = "none";
 
 
   } else {
@@ -483,7 +483,7 @@ function validatePassword(){
 function submitID(){
   console.log('submitID called');
   let payload = JSON.stringify({
-    identifier: $('#username').val(),
+    identifier: $('#identifier').val(),
   });
   console.log('payload is ' + payload);
   let url = $('#idSubmitUrl').val();
