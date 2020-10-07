@@ -352,7 +352,6 @@ function nextStep(data) {
       $('#changePasswordDiv').hide();
       $('#idFirst').hide();
       $('#pingIDNextStep').val(data._links['authenticate'].href);
-}
       $('#ppDiv').hide('');
       break;
       case 'OTP_REQUIRED':
