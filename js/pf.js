@@ -480,7 +480,7 @@ function validatePassword(){
 function submitID(){
   console.log('submitID called');
   let payload = JSON.stringify({
-    username: $('#username').val(),
+    identifier: $('#username').val(),
   });
   console.log('payload is ' + payload);
   let url = $('#idSubmitUrl').val();
