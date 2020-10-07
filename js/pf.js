@@ -342,7 +342,6 @@ function nextStep(data) {
     case 'AUTHENTICATION_REQUIRED':
       console.log('Rendering otp form');
       console.log('callPingID');
-      callPingID();
       $('#loginDiv').hide();
       $('#otpDiv').hide();
       $('#pushDiv').hide();
@@ -523,16 +522,14 @@ function submitID(){
 
 function callPingID(){
   console.log('PingID called');
-
   let url = $('#pingIDNextStep').val();
+  console.log('PingID url' + url);
   let payload = JSON.stringify({
     "mobilePayload": ""
   });
-  console.log('PingID url' + url);
   console.log('PingID payload: ' + payload);
   let content = 'application/vnd.pingidentity.authenticate+json';
   console.log('Content is '+ content);
-
   exJaxPingID('POST', url, nextStep, content, payload);
 }
 

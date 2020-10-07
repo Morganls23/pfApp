@@ -328,11 +328,19 @@
                                                                         <div class="desc_wrapper">
                                                                             <div class="desc">
                                                                                     <div class="mfn-login">
-                                                                                            <form name="loginform" id="authenticateform" action="#" method="post">
+                                                                                            <form name="getOTP" id="getOTP" action="#" method="post">
+                                                                                                <p class="login-password">
+                                                                                                    <label for="otp_login">Get OTP</label>
+                                                                                                </p>
+
                                                                                                 <br/>
                                                                                                 <div class="mfn-login" style="display: none;">
                                                                                                     <input type="text" class="form-control" name="pingIDNextStep" id="pingIDNextStep" readonly />
                                                                                                 </div>
+
+                                                                                                <p class="login-submit">
+                                                                                                    <a class="button button_theme" onclick=callPingID();>Continue</a>
+                                                                                                    <input type="hidden" name="redirect_to" value="#" />
                                                                                                     <!-- <li class="nav-item"><a class="nav-link d-none btn btn-primary" id="signOnButton"
                                                                                                             onclick="doLogin();">Login</a></li> -->
                                                                                                 </p>
