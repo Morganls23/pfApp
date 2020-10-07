@@ -441,7 +441,7 @@ function nextStep(data) {
     case 'RESUME':
       console.log('resume response.. redirect?');
       $('#loginDiv').hide();
-      $('#otpDiv').show();
+      $('#otpDiv').hide();
       $('#pushDiv').hide();
       $('#regDiv').hide();
       $('#pwResetCodeDiv').hide();
