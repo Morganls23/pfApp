@@ -354,7 +354,7 @@ function nextStep(data) {
       $('#pushDiv').hide();
       $('#regDiv').hide();
       $('#pwResetCodeDiv').hide();
-      $('#authenticateDiv').show();
+      $('#authenticateDiv').hide();
       $('#changePasswordDiv').hide();
       $('#idFirst').hide();
       $('#pingIDNextStep').val(data._links['authenticate'].href);
