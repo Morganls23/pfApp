@@ -269,6 +269,7 @@ function nextStep(data) {
       $('#regDiv').hide();
       $('#changePasswordDiv').hide();
       $('#pwResetCodeDiv').hide();
+      $('#idFirst').hide();
       $('#validatePasswordUrl').val(data._links['checkUsernamePassword'].href);
       $('#registerUserUrl').val(data._links['initiateRegistration'].href);
       $('#forgotPasswordURL').val(data._links["initiateAccountRecovery"].href);
@@ -276,6 +277,21 @@ function nextStep(data) {
       //$('#partnerLoginUrl').val(data._embedded.socialProviders[1]._links.authenticate.href);
       $('#ppDiv').hide('');
       break;
+
+      case 'IDENTIFIER_REQUIRED':
+        console.log('Rendering login form');
+        $('#loginDiv').hide();
+        $('#otpDiv').hide();
+        $('#pushDiv').hide();
+        $('#regDiv').hide();
+        $('#changePasswordDiv').hide();
+        $('#pwResetCodeDiv').hide();
+        $('#idFirst').show();
+        $('#idSubmitUrl').val(data._links['submitIdentifier'].href);
+        //$('#socialLoginUrl').val(data{"alternativeAuthenticationSources"[0]._links.authenticate.href);
+        //$('#partnerLoginUrl').val(data._embedded.socialProviders[1]._links.authenticate.href);
+        $('#ppDiv').hide('');
+        break;
 
     case 'REGISTRATION_REQUIRED':
     console.log('Rendering Verification code form');
@@ -285,6 +301,7 @@ function nextStep(data) {
       $('#regDiv').show();
       $('#pwResetCodeDiv').hide();
       $('#changePasswordDiv').hide();
+      $('#idFirst').hide();
       $('#registerUserURL').val(data._links['registerUser'].herf);
       $('#cancel').val(data._links['registerUser'].herf);
       $('#ppDiv').hide('');
@@ -300,6 +317,7 @@ function nextStep(data) {
       $('#changePasswordDiv').hide();
       $('#verifyUserUrl').val(data._links['user.verify'].href);
       $('#ppDiv').hide('');
+      $('#idFirst').hide();
       break;
     case 'PASSWORD_REQUIRED':
       console.log('Rendering login form');
@@ -309,6 +327,7 @@ function nextStep(data) {
       $('#regDiv').hide();
       $('#pwResetCodeDiv').hide();
       $('#changePasswordDiv').hide();
+      $('#idFirst').hide();
       $('#validatePasswordUrl').val(data._embedded.requiredStep._links['usernamePassword.check'].href);
       $('#ppDiv').hide('');
       break;
@@ -322,6 +341,7 @@ function nextStep(data) {
       $('#regDiv').hide();
       $('#pwResetCodeDiv').hide();
       $('#changePasswordDiv').hide();
+      $('#idFirst').hide();
       $('#validateOtpUrl').val(data._links['otp.check'].href);
       $('#ppDiv').hide('');
       break;
@@ -333,6 +353,7 @@ function nextStep(data) {
       $('#regDiv').hide();
       $('#pwResetCodeDiv').hide();
       $('#changePasswordDiv').hide();
+      $('#idFirst').hide();
       $('#pushResumeUrl').val(data._links["device.select"].href);
       $('#ppDiv').hide('');
       break;
@@ -344,6 +365,7 @@ function nextStep(data) {
       $('#regDiv').hide();
       $('#pwResetCodeDiv').hide();
       $('#changePasswordDiv').show();
+      $('#idFirst').hide();
       $('#changePasswordUrl').val(data._links['password.reset'].href);
       $('#ppDiv').hide('');
       break;
@@ -355,6 +377,7 @@ function nextStep(data) {
       $('#regDiv').hide();
       $('#changePasswordDiv').hide();
       $('#pwResetCodeDiv').show();
+      $('#idFirst').hide();
       $('#changePasswordUrl').val(data._links['password.reset'].href);
       $('#pwcodeUrl').val(data._links['password.recover'].href);
       $('#ppDiv').hide('');
@@ -370,6 +393,7 @@ function nextStep(data) {
       $('#warningMessage').text('');
       $('#warningDiv').hide();
       $('#ppDiv').hide('');
+      $('#idFirst').hide();
       console.log('Redirecting user');
       console.log(data);
       window.location.replace(data.resumeUrl);
@@ -385,6 +409,7 @@ function nextStep(data) {
       $('#warningMessage').hide('');
       $('#warningDiv').hide();
       $('#ppDiv').text('');
+      $('#idFirst').hide();
     break;
     case 'RESUME':
       console.log('resume response.. redirect?');
@@ -394,6 +419,7 @@ function nextStep(data) {
       $('#regDiv').hide();
       $('#pwResetCodeDiv').hide();
       $('#changePasswordDiv').hide();
+      $('#idFirst').hide();
       //$('#resumeUrl').val(data._links['self'].href);
       $('#ppDiv').hide('');
       window.location.replace(data.resumeUrl);
@@ -451,6 +477,29 @@ function validatePassword(){
   exJax('POST', url, nextStep, content, payload);
 }
 
+function submitID(){
+  console.log('submitID called');
+  let payload = JSON.stringify({
+    username: $('#username').val(),
+  });
+  console.log('payload is ' + payload);
+  let url = $('#idSubmitUrl').val();
+  console.log('url is: ' + url);
+  let content = 'application/vnd.pingidentity.submitIdentifier+json';
+  console.log('Content is '+ content);
+  exJax('POST', url, nextStep, content, payload);
+}
+
+
+
+
+
+
+
+
+
+
+///Other stuff that's not authentication/Register
 
 function callPingID(){
   console.log('PingID called');
