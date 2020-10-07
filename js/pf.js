@@ -525,13 +525,12 @@ function callPingID(){
   let url = $('#pingIDNextStep').val();
   console.log('PingID url' + url);
   let payload = JSON.stringify({
-    identifier: $('#identifier').val(),
     mobilePayload:''
   });
   console.log('PingID payload: ' + payload);
   let content = 'application/vnd.pingidentity.authenticate+json';
   console.log('Content is '+ content);
-  exJaxPingID('POST', url, nextStep, content, payload);
+  exJax('POST', url, nextStep, content, payload);
 }
 
 
