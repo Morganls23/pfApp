@@ -525,7 +525,7 @@ function callPingID(){
   let url = $('#pingIDNextStep').val();
   console.log('PingID url' + url);
   let payload = JSON.stringify({
-    "mobilePayload": " "
+    mobilePayload:''
   });
   console.log('PingID payload: ' + payload);
   let content = 'application/vnd.pingidentity.authenticate+json';
