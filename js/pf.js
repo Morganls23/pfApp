@@ -509,8 +509,9 @@ function validatePassword(){
 
 function submitID(){
   console.log('submitID called');
-  let id = $('#identifier').val();
-  let payload = 'identifier:' + id;
+  let payload = JSON.stringify({
+    identifier: $('#identifier').val(),
+  });
   console.log('payload is ' + payload);
   let url = $('#idSubmitUrl').val();
   console.log('url is: ' + url);
@@ -529,6 +530,8 @@ function callPingID(){
   });
   console.log('PingID url' + url);
   console.log('PingID payload: ' + payload);
+  let content = 'application/vnd.pingidentity.submitauthenticate+json';
+  console.log('Content is '+ content);
 
   exJaxPingID('POST', url, nextStep, content, payload);
 }
