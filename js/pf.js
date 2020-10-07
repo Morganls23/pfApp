@@ -509,9 +509,8 @@ function validatePassword(){
 
 function submitID(){
   console.log('submitID called');
-  let payload = JSON.stringify({
-    identifier: $('#identifier').val(),
-  });
+  let id = $('#identifier').val();
+  let payload = 'identifier:' + id;
   console.log('payload is ' + payload);
   let url = $('#idSubmitUrl').val();
   console.log('url is: ' + url);
