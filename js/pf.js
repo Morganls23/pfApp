@@ -165,6 +165,9 @@ function renderDivState() {
     let identifier = document.getElementById("idFirst");
     identifier.style.display = "none";
 
+    let auth = document.getElementById("authenticateDiv");
+    auth.style.display = "none";
+
 
   } else {
     let login = document.getElementById("loginDiv");
@@ -181,6 +184,9 @@ function renderDivState() {
 
     let account = document.getElementById("myAccount");
     account.style.display = "none";
+    
+    let auth = document.getElementById("authenticateDiv");
+    auth.style.display = "none";
   }
 
 
