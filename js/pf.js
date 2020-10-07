@@ -184,7 +184,7 @@ function renderDivState() {
 
     let account = document.getElementById("myAccount");
     account.style.display = "none";
-    
+
     let auth = document.getElementById("authenticateDiv");
     auth.style.display = "none";
   }
@@ -348,6 +348,7 @@ function nextStep(data) {
     case 'AUTHENTICATION_REQUIRED':
       console.log('Rendering otp form');
       console.log('callPingID');
+      callPingID();
       $('#loginDiv').hide();
       $('#otpDiv').hide();
       $('#pushDiv').hide();
