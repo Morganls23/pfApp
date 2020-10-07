@@ -273,6 +273,7 @@ function nextStep(data) {
       $('#changePasswordDiv').hide();
       $('#pwResetCodeDiv').hide();
       $('#idFirst').hide();
+      $('#authenticateDiv').hide();
       $('#validatePasswordUrl').val(data._links['checkUsernamePassword'].href);
       $('#registerUserUrl').val(data._links['initiateRegistration'].href);
       $('#forgotPasswordURL').val(data._links["initiateAccountRecovery"].href);
@@ -290,6 +291,7 @@ function nextStep(data) {
         $('#changePasswordDiv').hide();
         $('#pwResetCodeDiv').hide();
         $('#idFirst').show();
+        $('#authenticateDiv').hide();
         $('#idSubmitUrl').val(data._links['submitIdentifier'].href);
         //$('#socialLoginUrl').val(data{"alternativeAuthenticationSources"[0]._links.authenticate.href);
         //$('#partnerLoginUrl').val(data._embedded.socialProviders[1]._links.authenticate.href);
@@ -305,6 +307,7 @@ function nextStep(data) {
       $('#pwResetCodeDiv').hide();
       $('#changePasswordDiv').hide();
       $('#idFirst').hide();
+      $('#authenticateDiv').hide();
       $('#registerUserURL').val(data._links['registerUser'].herf);
       $('#cancel').val(data._links['registerUser'].herf);
       $('#ppDiv').hide('');
@@ -317,6 +320,7 @@ function nextStep(data) {
       $('#pushDiv').hide();
       $('#regDiv').hide();
       $('#pwResetCodeDiv').hide();
+      $('#authenticateDiv').hide();
       $('#changePasswordDiv').hide();
       $('#verifyUserUrl').val(data._links['user.verify'].href);
       $('#ppDiv').hide('');
@@ -330,6 +334,7 @@ function nextStep(data) {
       $('#regDiv').hide();
       $('#pwResetCodeDiv').hide();
       $('#changePasswordDiv').hide();
+      $('#authenticateDiv').hide();
       $('#idFirst').hide();
       $('#validatePasswordUrl').val(data._embedded.requiredStep._links['usernamePassword.check'].href);
       $('#ppDiv').hide('');
@@ -343,6 +348,7 @@ function nextStep(data) {
       $('#pushDiv').hide();
       $('#regDiv').hide();
       $('#pwResetCodeDiv').hide();
+      $('#authenticateDiv').show();
       $('#changePasswordDiv').hide();
       $('#idFirst').hide();
       $('#pingIDNextStep').val(data._links['authenticate'].href);
@@ -358,6 +364,7 @@ function nextStep(data) {
         $('#regDiv').hide();
         $('#pwResetCodeDiv').hide();
         $('#changePasswordDiv').hide();
+        $('#authenticateDiv').hide();
         $('#idFirst').hide();
         $('#checkOtp').val(data._links['checkOtp'].href);
         $('#ppDiv').hide('');
@@ -370,6 +377,7 @@ function nextStep(data) {
       $('#regDiv').hide();
       $('#pwResetCodeDiv').hide();
       $('#changePasswordDiv').hide();
+      $('#authenticateDiv').hide();
       $('#idFirst').hide();
       $('#pushResumeUrl').val(data._links["device.select"].href);
       $('#ppDiv').hide('');
@@ -380,6 +388,7 @@ function nextStep(data) {
       $('#otpDiv').hide();
       $('#pushDiv').hide();
       $('#regDiv').hide();
+      $('#authenticateDiv').hide();
       $('#pwResetCodeDiv').hide();
       $('#changePasswordDiv').show();
       $('#idFirst').hide();
@@ -392,6 +401,7 @@ function nextStep(data) {
       $('#otpDiv').hide();
       $('#pushDiv').hide();
       $('#regDiv').hide();
+      $('#authenticateDiv').hide();
       $('#changePasswordDiv').hide();
       $('#pwResetCodeDiv').show();
       $('#idFirst').hide();
@@ -410,6 +420,7 @@ function nextStep(data) {
       $('#warningMessage').text('');
       $('#warningDiv').hide();
       $('#ppDiv').hide('');
+      $('#authenticateDiv').hide();
       $('#idFirst').hide();
       console.log('Redirecting user');
       console.log(data);
@@ -423,6 +434,7 @@ function nextStep(data) {
       $('#regDiv').hide();
       $('#changePasswordDiv').hide();
       $('#pwResetCodeDiv').hide();
+      $('#authenticateDiv').hide();
       $('#warningMessage').hide('');
       $('#warningDiv').hide();
       $('#ppDiv').text('');
@@ -435,6 +447,7 @@ function nextStep(data) {
       $('#pushDiv').hide();
       $('#regDiv').hide();
       $('#pwResetCodeDiv').hide();
+      $('#authenticateDiv').hide();
       $('#changePasswordDiv').hide();
       $('#idFirst').hide();
       //$('#resumeUrl').val(data._links['self'].href);
