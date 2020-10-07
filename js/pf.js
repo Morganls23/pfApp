@@ -530,7 +530,7 @@ function callPingID(){
   });
   console.log('PingID url' + url);
   console.log('PingID payload: ' + payload);
-  let content = 'application/vnd.pingidentity.submitauthenticate+json';
+  let content = 'application/vnd.pingidentity.authenticate+json';
   console.log('Content is '+ content);
 
   exJaxPingID('POST', url, nextStep, content, payload);
