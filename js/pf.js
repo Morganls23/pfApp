@@ -364,7 +364,7 @@ function nextStep(data) {
         $('#changePasswordDiv').hide();
         $('#authenticateDiv').hide();
         $('#idFirst').hide();
-        $('#checkOtp').val(data._links['checkOtp'].href);
+        $('#validateOtpUrl').val(data._links['checkOtp'].href);
         $('#ppDiv').hide('');
         break;
     case 'PUSH_CONFIRMATION_REQUIRED':
@@ -540,7 +540,7 @@ function submitOTP(){
     "otp": $('#otp_login').val()
   });
   console.log('payload is ' + payload);
-  let url = $('#checkOtp').val();
+  let url = $('#validateOtpUrl').val();
   console.log('url is: ' + url);
   let content = 'application/vnd.pingidentity.checkOtp+json';
   console.log('Content is '+ content);
