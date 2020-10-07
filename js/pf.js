@@ -337,7 +337,7 @@ function nextStep(data) {
     case 'AUTHENTICATION_REQUIRED':
       console.log('Rendering otp form');
       console.log('callPingID');
-      callPingID();
+      //callPingID();
       $('#loginDiv').hide();
       $('#otpDiv').show();
       $('#pushDiv').hide();
